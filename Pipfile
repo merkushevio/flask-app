@@ -1,0 +1,37 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+flask = "*"
+psycopg2 = "*"
+flask-wtf = "*"
+flask-sqlalchemy = "*"
+flask-bcrypt = "*"
+flask-login = "*"
+flask-mail = "*"
+flask_cache = "*"
+bcrypt = "*"
+blinker = "*"
+certifi = "*"
+cffi = "*"
+click = "*"
+itsdangerous = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+Pillow = "*"
+pycparser = "*"
+six = "*"
+SQLAlchemy = "*"
+Werkzeug = "*"
+WTForms = "*"
+
+[requires]
+python_version = "3.7"
+
+[dev-packages]
+pytest = "*"
+pytest-flask = "*"
+pytest-mock = "*"
+pytest-flask-sqlalchemy = "*"
