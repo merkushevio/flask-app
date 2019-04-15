@@ -1,7 +1,8 @@
 from geek_space import app, bcrypt, db
 from geek_space.utils.file import save_picture
 from flask import Response, render_template, flash, redirect, url_for, request
-from geek_space.forms.user import RegistrationForm, LoginForm, ProfileForm
+from geek_space.forms.user import RegistrationForm, LoginForm
+from geek_space.forms.profile import ProfileForm
 from geek_space.models.user import User
 from flask_login import login_user, logout_user, login_required, current_user
 
@@ -78,9 +79,3 @@ def login():
 def logout():
     logout_user()
     redirect(url_for('home'))
-
-
-@app.route('/note/new')
-@login_required
-def new_note():
-    return render_template('create_note.html', title='Note')

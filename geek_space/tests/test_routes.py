@@ -1,7 +1,7 @@
 import os
 import tempfile
 import pytest
-from app import app
+from .base import create_app as app
 
 
 @pytest.fixture

@@ -25,7 +25,7 @@ class User(db.Model, UserMixin):
     role = db.Column(db.Enum(Roles), default=Roles.USER, nullable=False)
     is_enable = db.Column(db.Boolean, default=True)
     image_file = db.Column(db.String(20), default='default.jpg')
-    notes = db.relationship('Note', backref='user', lazy=True)
+    notes = db.relationship(Note, backref='user', lazy=True)
 
     def __repr__(self) -> str:
         return f'User({self.username}, {self.email}, {self.role}, {self.is_enable}, {self.image_file} )'

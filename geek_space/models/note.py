@@ -26,3 +26,12 @@ class Note(db.Model):
     end_datetime = db.Column(db.DateTime)
     status = db.Column(db.Enum(StatusNote), default=StatusNote.CREATED)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    group = db.Column(db.String, db.ForeignKey('group_note.id'))
+
+
+class GroupNote(db.Model):
+
+    __tablename__ = 'group_note'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String, unique=True, nullable=False)
