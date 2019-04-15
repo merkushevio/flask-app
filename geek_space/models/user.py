@@ -1,5 +1,12 @@
-from geek_space import db
+from geek_space import db, login_manager
+from flask_login import UserMixin
+from geek_space.models.note import Note
 import enum
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
 class Roles(enum.Enum):
@@ -7,7 +14,7 @@ class Roles(enum.Enum):
     ADMIN = 'admin'
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
 
     __tablename__ = 'users'
 
