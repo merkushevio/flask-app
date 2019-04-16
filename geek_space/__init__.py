@@ -1,11 +1,11 @@
 from flask import Flask
-from geek_space.conf.config import ProductionConfig
+from geek_space.conf.config import ProductionConfig, TestingConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 app = Flask(__name__)
-app.config.from_object(ProductionConfig)
+app.config.from_object(TestingConfig)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
