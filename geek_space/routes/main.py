@@ -13,12 +13,6 @@ def home():
 
 
 @login_required
-@app.route('/workspace')
-def workspace():
-    return render_template('workspace.html', status=200)
-
-
-@login_required
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     image_file = url_for('static', filename=f'img/profile_pics/{current_user.image_file}')
@@ -78,4 +72,4 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    redirect(url_for('home'))
+    return redirect(url_for('home'))

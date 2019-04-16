@@ -9,7 +9,7 @@ from geek_space.models.note import Note
 @login_required
 def notes():
     user_notes = Note.query.filter_by(user_id=current_user.id)
-    return render_template('home.html', title='Notes', data=user_notes)
+    return render_template('note.html', title='Notes', data=user_notes)
 
 
 @app.route('/note/<int:note_id>')
@@ -18,7 +18,7 @@ def note(note_id):
     note = Note.query.get_or_404(note_id)
     if note.user_id != current_user.id:
         abort(403)
-    return render_template('home.html', title=note.title, note=note)
+    return render_template('note.html', title=note.title, note=note)
 
 
 @app.route('/note/<int:note_id>/update', methods=['GET', 'POST'])
@@ -37,7 +37,7 @@ def update_note(note_id):
         form.end_datetime.data = note.end_datetime
     if form.validate_on_submit():
         pass
-    return render_template('home.html', title='Note')
+    return render_template('note.html', title='Note')
 
 
 @app.route('/note/<int:note_id>/delete', methods=['POST'])
@@ -55,4 +55,4 @@ def delete_note(note_id):
 @app.route('/note/new')
 @login_required
 def new_note():
-    return render_template('home.html', title='Note')
+    return render_template('note.html', title='Note')
