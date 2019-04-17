@@ -1,0 +1,35 @@
+{% extends "notes_layout.html" %}
+{% block content %}
+    {% for note in notes %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + note.user.image_file) }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ note.user.username }}</a>
+                    <small class="text-muted">{{ note.start_datetime.strftime('%Y-%m-%d') }}</small>
+                    <small class="text-muted">{{ note.end_datetime.strftime('%Y-%m-%d') }}</small>
+                </div>
+                <div class="row">
+                    <div class="col dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-item" >created</li>
+                            <li class="dropdown-item" >started</li>
+                            <li class="dropdown-item" >pause</li>
+                            <li class="dropdown-item" >finished</li>
+                            <li class="dropdown-item" >process</li>
+                            <li class="dropdown-item" >archived</li>
+                            <li class="dropdown-item" >deleted</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h2><a class="article-title" href="{{ url_for('note', note_id=note.id) }}">{{ note.title }}</a></h2>
+                        <p class="article-content">{{ note.content }}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

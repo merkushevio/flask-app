@@ -9,7 +9,7 @@ from geek_space.models.note import Note
 @login_required
 def notes():
     user_notes = Note.query.filter_by(user_id=current_user.id)
-    return render_template('note.html', title='Notes', data=user_notes)
+    return render_template('notes.html', title='Notes', data=user_notes)
 
 
 @app.route('/note/<int:note_id>')
@@ -55,4 +55,6 @@ def delete_note(note_id):
 @app.route('/note/new')
 @login_required
 def new_note():
-    return render_template('note.html', title='Note')
+    form = NoteForm()
+    image_file = url_for('static', filename=f'img/profile_pics/{current_user.image_file}')
+    return render_template('note.html', title='Note', form=form, image_file= image_file)

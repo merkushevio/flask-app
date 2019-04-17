@@ -8,7 +8,7 @@ class NoteForm(FlaskForm):
     content = StringField('Content')
     start_datetime = DateTimeField('Start Datetime', validators=[DataRequired(), Length(min=4, max=20)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Create')
 
 #     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 #     title = db.Column(db.String(100), unique=True, nullable=False)
