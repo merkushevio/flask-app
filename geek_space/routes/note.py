@@ -18,7 +18,7 @@ def note(note_id):
     note = Note.query.get_or_404(note_id)
     if note.user_id != current_user.id:
         abort(403)
-    return render_template('note.html', title=note.title, note=note)
+    return render_template('note.html', title=note.title, note=note, image_file=current_user.image_file)
 
 
 @app.route('/note/<int:note_id>/update', methods=['GET', 'POST'])
