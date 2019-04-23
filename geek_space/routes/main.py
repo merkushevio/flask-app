@@ -6,6 +6,7 @@ from geek_space.forms.user import RegistrationForm, LoginForm
 from geek_space.models.user import User
 
 
+# TODO refactor all app to use blueprints and split to modules
 @app.route('/')
 def home():
     return render_template('home.html', status=200)
