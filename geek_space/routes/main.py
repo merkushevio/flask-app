@@ -7,6 +7,8 @@ from geek_space.models.user import User
 
 
 # TODO refactor all app to use blueprints and split to modules
+# link: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure
+
 @app.route('/')
 def home():
     return render_template('home.html', status=200)
