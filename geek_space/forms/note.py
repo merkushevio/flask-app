@@ -6,8 +6,7 @@ from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationE
 class NoteForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=4, max=100)])
     content = StringField('Content')
-    start_datetime = DateTimeField('Start Datetime', validators=[DataRequired(), Length(min=4, max=20)])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    start_datetime = DateTimeField('Start Datetime')
     submit = SubmitField('Create')
 
 #     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

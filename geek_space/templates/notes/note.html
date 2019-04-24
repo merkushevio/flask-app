@@ -1,4 +1,4 @@
-{% extends "notes_layout.html" %}
+{% extends "notes/notes_layout.html" %}
 {% block content %}
     <div class="content-section">
         <div class="media">
@@ -13,7 +13,6 @@
                 <legend class="border-bottom mb-4">Note</legend>
                 <div class="form-group">
                     {{ form.title.label(class="form-control-label") }}
-
                     {% if form.title.errors %}
                         {{ form.title(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">

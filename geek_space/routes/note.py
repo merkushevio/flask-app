@@ -9,7 +9,7 @@ from geek_space.models.note import Note
 @login_required
 def notes():
     user_notes = Note.query.filter_by(user_id=current_user.id)
-    return render_template('notes.html', title='Notes', data=user_notes)
+    return render_template('notes/notes.html', title='Notes', data=user_notes)
 
 
 @app.route('/note/<int:note_id>')
@@ -18,7 +18,7 @@ def note(note_id):
     note = Note.query.get_or_404(note_id)
     if note.user_id != current_user.id:
         abort(403)
-    return render_template('note.html', title=note.title, note=note, image_file=current_user.image_file)
+    return render_template('notes/note.html', title=note.title, note=note, image_file=current_user.image_file)
 
 
 @app.route('/note/<int:note_id>/update', methods=['GET', 'POST'])
@@ -36,8 +36,9 @@ def update_note(note_id):
         form.start_datetime.data = note.start_datetime
         form.end_datetime.data = note.end_datetime
     if form.validate_on_submit():
-        pass
-    return render_template('note.html', title='Note')
+        note.title = form.title.data
+        note.content = form.content.data
+    return render_template('notes/note.html', title='Note')
 
 
 @app.route('/note/<int:note_id>/delete', methods=['POST'])
@@ -52,9 +53,18 @@ def delete_note(note_id):
     return redirect(url_for('notes'))
 
 
-@app.route('/note/new')
+@app.route('/note/new', methods=['GET', 'POST'])
 @login_required
 def new_note():
     form = NoteForm()
     image_file = url_for('static', filename=f'img/profile_pics/{current_user.image_file}')
-    return render_template('note.html', title='Note', form=form, image_file= image_file)
+    if form.validate_on_submit():
+        title = form.title.data
+        content = form.content.data
+        user = current_user
+        note = Note(title=title, content=content, user_id=user.id)
+        db.session.add(note)
+        db.session.commit()
+        flash(f'Your note is been created!', 'success')
+        return redirect(url_for('notes'))
+    return render_template('notes/note.html', title='Note', form=form, image_file=image_file)
