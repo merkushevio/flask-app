@@ -1,12 +1,15 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, DateTimeField
 from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError
+from datetime import datetime as dt
 
 
 class NoteForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=4, max=100)])
     content = StringField('Content')
-    start_datetime = DateTimeField('Start Datetime')
+    start_datetime = DateTimeField('Start Datetime', default=dt.utcnow)
+    end_datetime = DateTimeField('End Datetime', default=dt.utcnow)
+
     submit = SubmitField('Create')
 
 #     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

@@ -9,7 +9,7 @@ from geek_space.models.note import Note
 @login_required
 def notes():
     user_notes = Note.query.filter_by(user_id=current_user.id)
-    return render_template('notes/notes.html', title='Notes', data=user_notes)
+    return render_template('notes/notes.html', title='Notes', notes=user_notes)
 
 
 @app.route('/note/<int:note_id>')
