@@ -37,6 +37,41 @@
                         {{ form.content(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
+                <div class="form-group">
+                    {{ form.group.label(class="form-control-label") }}
+                    {% if form.content.errors %}
+                        {{ form.content(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.group(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label>Date Start</label>
+                    <div class="input-group date" id="date-start" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#date-start"/>
+                        <div class="input-group-append" data-target="#date-start" data-toggle="datetimepicker">
+                            <div class="input-group-text">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                        </div><!-- .input-group-append -->
+                    </div><!-- .input-group -->
+                </div><!-- .form-group -->
+                <div class="form-group">
+                    <label>Date Finish</label>
+                    <div class="input-group date" id="date-finish" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#date-finish"/>
+                        <div class="input-group-append" data-target="#date-finish" data-toggle="datetimepicker">
+                            <div class="input-group-text">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                        </div><!-- .input-group-append -->
+                    </div><!-- .input-group -->
+                </div><!-- .form-group -->
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}

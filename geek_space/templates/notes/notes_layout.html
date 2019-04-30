@@ -7,6 +7,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font_awesome.css') }}">
+    <link href="{{ url_for('static', filename='js/toggle/bootstrap-toggle.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='js/select/bootstrap-select.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='js/slider/bootstrap-slider.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='js/fileinput/fileinput.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='js/datepicker/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
@@ -28,7 +34,6 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{{ url_for('notes') }}">Notes</a>
-                    <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
@@ -46,6 +51,17 @@
     </nav>
 </header>
 <main role="main" class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6">
             {% with messages = get_flashed_messages(with_categories=true) %}
@@ -80,5 +96,12 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="{{ url_for('static', filename='js/jquery-3.3.1.slim.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.bundle.js') }}"></script>
+<script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/toggle/bootstrap-toggle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/select/bootstrap-select.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/slider/bootstrap-slider.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/fileinput/fileinput.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/fileinput/theme.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/datepicker/tempusdominus-bootstrap-4.min.js') }}"></script>
 </body>
 </html>

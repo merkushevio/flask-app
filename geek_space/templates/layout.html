@@ -56,15 +56,15 @@
                                 </a>
                             </div>
                         {% else %}
-                            <a href="#" class="nav-link dropdown-toggle">
-                                <i class="fas fa-user">Guest</i>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fas fa-user"> Guest</i>
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ url_for('login') }}">
-                                    <i class="fas fa-user-check"></i> Login
+                                    <i class="fas fa-cog"></i> Login
                                 </a>
-                                <a class="dropdown-item" href="{{ url_for('register') }}">
-                                    <i class="fas fa-user-plus"></i> Register
+                                <a class=" dropdown-item" href="{{ url_for('register') }}">
+                                    <i class="fas fa-user-times"></i> Register
                                 </a>
                             </div>
                         {% endif %}

@@ -4,27 +4,21 @@
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ note.user.username }}</a>
-                    <small class="text-muted">{{ note.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
-                    <small class="text-muted">{{ note.updated_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                    <a class="mr-4" href="#">{{ note.user.username }}</a>
+                    <small class="text-muted mr-4">start: {{ note.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                    <small class="text-muted mr-4">finish: {{ note.updated_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control" id="status">
-                            <option>Created</option>
-                            <option>Started</option>
-                            <option>Pause</option>
-                            <option>Finished</option>
-                            <option>Process</option>
-                            <option>Archived</option>
-                            <option>Deleted</option>
-                        </select>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label mr-2">
-                            <input type="checkbox" class="form-check-input">Done
-                        </label>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <span class="text-muted">{{ note.status.name }}</span>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label mr-2">
+                                <input type="checkbox" class="form-check-input">Done
+                            </label>
+                        </div>
                     </div>
                     <div class="col">
                         <h2><a class="article-title" href="{{ url_for('note', note_id=note.id) }}">{{ note.title }}</a>

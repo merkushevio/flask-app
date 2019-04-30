@@ -62,7 +62,8 @@ def new_note():
         title = form.title.data
         content = form.content.data
         user = current_user
-        note = Note(title=title, content=content, user_id=user.id)
+        group = form.group.data
+        note = Note(title=title, content=content, user_id=user.id, group=group)
         db.session.add(note)
         db.session.commit()
         flash(f'Your note is been created!', 'success')

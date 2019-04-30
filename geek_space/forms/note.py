@@ -9,7 +9,7 @@ class NoteForm(FlaskForm):
     content = StringField('Content')
     start_datetime = DateTimeField('Start Datetime', default=dt.utcnow)
     end_datetime = DateTimeField('End Datetime', default=dt.utcnow)
-
+    group = StringField('Group')
     submit = SubmitField('Create')
 
 #     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
