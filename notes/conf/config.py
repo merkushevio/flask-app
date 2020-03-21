@@ -7,7 +7,7 @@ class Config:
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'c9aba972597014b30b73dfbf68d59c18b76497c9ca209c1732badd5e3ebb'
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'postgresql://localhost:5432/geek_space')
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'postgresql://localhost:5432/notes')
 
 
 class ProductionConfig(Config):
